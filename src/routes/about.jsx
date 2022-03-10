@@ -5,7 +5,12 @@ export default function About() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch("https://swapi.dev/api/people/1")
+        fetch("http://127.0.0.1:8081",
+        {
+          method: "POST",
+          body: JSON.stringify({usr: 'samir', pwd: 'SuperDuperSecret'})
+        }
+        )
         .then(response => response.json())
         .then(result => setItems(result))
         .catch(error => setError(error))
